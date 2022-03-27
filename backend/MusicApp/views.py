@@ -1,7 +1,12 @@
+from django.shortcuts import render
+from rest_framework import viewsets # We use a viewset.
+from django.views.decorators.csrf import csrf_exempt
+from django.http import HttpResponse
+from django.core import serializers
+
 from .forms import Registration_form, Retrieval_form
 from .models import User, Artist, Rating, Attribute
 
-from rest_framework import viewsets
 from .serializers import UserSerializer, AttributeSerializer, ArtistSerializer, RatingSerializer
 
 #Change our views from PS2 to use the serializer class
