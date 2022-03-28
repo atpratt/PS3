@@ -1,6 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
 
+import React from "react";
+// Import the CustomModal that we created in Modal.js.
+import ... from "./components/...";
+import axios from "axios";
+
 function App() {
   return (
     <div className="App">
