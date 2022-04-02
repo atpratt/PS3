@@ -41,26 +41,28 @@ def user_registration(request):
 	else:
 		return HttpResponse("That username is already taken!");
 
-	return HttpResponse("success");
+	return HttpResponse("Successfully registered new user!");
 
 @csrf_exempt
 def rate(request):
 	if(request.method == 'POST'):
 		username = request.POST.get("username");
+		artistname = request.POST.get("artistname");
 		title = request.POST.get("title");
 		rating = request.POST.get("rating");
-		artistname = request.POST.get("artistname");
+		
 
 		user = None;
 
+		#check if valid username
 		try:
-			user = User.objects.get(username=username);
+			user = User.objects.get(username = username);
 		except User.DoesNotExist:
-			return HttpResponse("Failure: User nonexistant!")
+			return HttpResponse("That username doesn't exist yet!")
 		
-		#Get the artist for the song, create if nonexistant
+		#Check if song exists, otherwise add to database
 		try:
-			song = Artist.objects.get(song = title, artist=artistname);
+			song = Artist.objects.get(song = title, artist = artistname);
 		except Artist.DoesNotExist:
 			try:
 				artist = Attribute.objects.get(name = artistname);
@@ -69,24 +71,26 @@ def rate(request):
 				artist.save();
 			song = Artist(song = title, artist = artist);
 			song.save();
-		#Try and get the rating for that user and that song, return error if it exists
+		
+		#Check if user has rated that song yet
 		try:
-			rating = Rating.objects.get(username=User.objects.get(username=username),song=Artist.objects.get(song=title, artist=Attribute.objects.get(name = artistname)));
+			rating = Rating.objects.get(username = User.objects.get(username = username),song = Artist.objects.get(song = title, artist = Attribute.objects.get(name = artistname)));
 			if(rating != None):
-				return HttpResponse("Failure: Already rated by this user!");
+				return HttpResponse("That user has already rated this song!");
 		except Rating.DoesNotExist:
-			rating = Rating(username=User.objects.get(username=username),song=Artist.objects.get(song=title),rating=rating);
+			rating = Rating(username = User.objects.get(username = username),song = Artist.objects.get(song = title),rating = rating);
 			rating.save();
-			return HttpResponse("Rating success!");
+			return HttpResponse("Rating has been added to the database!");
 
 def average_rating(title):
 		ratings = Rating.objects.filter(song = title);
-		totalrating = 0;
-		if(ratings.count() == 0):
+		total = 0;
+		count = ratings.count()
+		if(count == 0):
 			return 0;
 		for rating in ratings:
-			totalrating += rating.rating;
-		return totalrating / ratings.count();
+			total += rating.rating;
+		return total / count;
 
 @csrf_exempt
 def song_retrieval(request):

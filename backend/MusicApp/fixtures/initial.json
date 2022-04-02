@@ -1,0 +1,122 @@
+[
+    {
+      "model": "MusicApp.user",
+      "pk": 1,
+      "fields": {
+        "username": "Amelia-Earhart",
+        "password": "Youaom139&yu7"
+      }
+    },
+    {
+        "model": "MusicApp.user",
+        "pk": 2,
+        "fields": {
+          "username": "Otto",
+          "password": "StarWars2*"
+        }
+    },
+    {
+        "model": "MusicAppDB.attribute",
+        "pk": 3,
+        "fields": {
+            "name": "Bill Evans",
+            "album" : "",
+            "genre": "",
+            "year": "",
+            "record_company": ""
+        }
+    },
+    {
+        "model": "MusicApp.attribute",
+        "pk": 4,
+        "fields": {
+          "name": "Aimee Mann",
+          "album" : "",
+          "genre": "",
+          "year": "",
+          "record_company": ""
+        }
+    },
+    {
+        "model": "MusicApp.attribute",
+        "pk": 5,
+        "fields": {
+            "name": "Kendrick Lamar",
+            "album" : "",
+            "genre": "",
+            "year": "",
+            "record_company": ""
+        }
+    },
+    {
+        "model": "MusicApp.attribute",
+        "pk": 6,
+        "fields": {
+            "name": "",
+            "album" : "",
+            "genre": "",
+            "year": "",
+            "record_company": ""
+        }
+    },
+    {
+        "model": "MusicApp.artist",
+        "pk": 7,
+        "fields": {
+          "song": "Freeway",
+          "artist": "Aimee Mann"
+        }
+    },
+    {
+        "model": "MusicApp.artist",
+        "pk": 8,
+        "fields": {
+          "song": "Days of Wine and Roses",
+          "artist": "Bill Evans"
+        }
+    },
+    {
+        "model": "MusicApp.artist",
+        "pk": 9,
+        "fields": {
+          "song": "These Walls",
+          "artist": "Kendrick Lamar"
+        }
+    },
+    {
+        "model": "MusicApp.rating",
+        "pk": 10,
+        "fields": {
+          "username": "Amelia-Earhart",
+          "song": "Freeway",
+          "rating": 3
+        }
+    },
+    {
+        "model": "MusicApp.rating",
+        "pk": 11,
+        "fields": {
+          "username": "Amelia-Earhart",
+          "song": "Days of Wine and Roses",
+          "rating": 4
+        }
+    },
+    {
+        "model": "MusicApp.rating",
+        "pk": 12,
+        "fields": {
+          "username": "Otto",
+          "song": "Days of Wine and Roses",
+          "rating": 5
+        }
+    },
+    {
+        "model": "MusicApp.rating",
+        "pk": 13,
+        "fields": {
+          "username": "Amelia-Earhart",
+          "song": "These Walls",
+          "rating": 4
+        }
+    }
+]
