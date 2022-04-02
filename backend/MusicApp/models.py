@@ -15,16 +15,16 @@ class Attribute(models.Model):
     record_company = models.CharField(max_length = 200, default='SOME STRING')
 
     # def __str__(self):
-    #     return (self.artist_name)
-                # + "" + self.album
-                # + "" + self.genre
-                # + "" + str(self.year)
-                # + "" + self.record_company)
+    #     return (self.artist_name
+    #             + "" + self.album
+    #             + "" + self.genre
+    #             + "" + str(self.year)
+    #             + "" + self.record_company)
 
 class Artist(models.Model):
     song = models.CharField(max_length = 200, primary_key = True, default='SOME STRING')
     artist = models.ForeignKey(Attribute, max_length = 200, on_delete = models.CASCADE, default='SOME STRING')
-    average = models.FloatField(default=0)
+    average_rating = models.FloatField(default=0)
 
     # def __str__(self):
     #     art = self.artist.artist_name

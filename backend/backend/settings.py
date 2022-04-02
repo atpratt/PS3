@@ -132,3 +132,6 @@ CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
     'https://localhost:3000',
 ]
+
+#Do we need this?
+#CORS_ORIGIN_ALLOW_ALL = True
