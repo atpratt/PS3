@@ -11,8 +11,17 @@ from .serializers import UserSerializer, AttributeSerializer, ArtistSerializer, 
 
 #Change our views from PS2 to use the serializer class
 
+
 @csrf_exempt
-def registration(request):
+def index(request):
+	reg_form = Registration_form
+	ret_form = Retrieval_form
+	context = {'reg_form': reg_form, 'ret_form': ret_form}
+	return render(request, 'MusicApp/index.html', context)
+
+
+@csrf_exempt
+def user_registration(request):
 	if request.method == 'POST':
 		password = request.POST.get("password");
 		username = request.POST.get("username");
@@ -70,7 +79,7 @@ def rate(request):
 			rating.save();
 			return HttpResponse("Rating success!");
 
-def averagerating(title):
+def average_rating(title):
 		ratings = Rating.objects.filter(song = title);
 		totalrating = 0;
 		if(ratings.count() == 0):
@@ -80,7 +89,7 @@ def averagerating(title):
 		return totalrating / ratings.count();
 
 @csrf_exempt
-def songret(request):
+def song_retrieval(request):
 	reg_form = Registration_form
 	ret_form = Retrieval_form
 	if request.method == 'POST':
@@ -95,7 +104,7 @@ def songret(request):
 	return render(request, 'MusicApp/index.html', context)
 
 @csrf_exempt
-def listsongs(request):
+def list_songs(request):
 	if(request.method == 'GET'):
 		all = Artist.objects.all();
 		for s in all:
@@ -120,14 +129,7 @@ def artist_retrieval(request):
 
 
 @csrf_exempt
-def index(request):
-	reg_form = Registration_form
-	ret_form = Retrieval_form
-	context = {'reg_form': reg_form, 'ret_form': ret_form}
-	return render(request, 'MusicApp/index.html', context)
-
-@csrf_exempt
-def deletesong(request):
+def delete_song(request):
 	if(request.method == 'POST'):
 		title = request.POST.get("song");
 		Rating.objects.filter(song = title).delete();
