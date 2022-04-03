@@ -16,49 +16,39 @@
         }
     },
     {
-        "model": "MusicAppDB.attribute",
+        "model": "MusicApp.attribute",
         "pk": 3,
         "fields": {
-            "name": "Bill Evans",
-            "album" : "",
-            "genre": "",
-            "year": "",
-            "record_company": ""
+            "artist_name": "Bill Evans",
+            "album" : "Days of Wine and Roses",
+            "genre": "Jazz",
+            "year": "2016",
+            "record_company": "Riverside Records"
         }
     },
     {
         "model": "MusicApp.attribute",
         "pk": 4,
         "fields": {
-          "name": "Aimee Mann",
-          "album" : "",
-          "genre": "",
-          "year": "",
-          "record_company": ""
+          "artist_name": "Aimee Mann",
+          "album" : "Fucking Smilers",
+          "genre": "Alternative",
+          "year": "2008",
+          "record_company": "SuperEgo Records"
         }
     },
     {
         "model": "MusicApp.attribute",
         "pk": 5,
         "fields": {
-            "name": "Kendrick Lamar",
-            "album" : "",
-            "genre": "",
-            "year": "",
-            "record_company": ""
+            "artist_name": "Kendrick Lamar",
+            "album" : "To Pimp a Butterfly",
+            "genre": "Rap",
+            "year": "2015",
+            "record_company": "Top Dawg Entertainment"
         }
     },
-    {
-        "model": "MusicApp.attribute",
-        "pk": 6,
-        "fields": {
-            "name": "",
-            "album" : "",
-            "genre": "",
-            "year": "",
-            "record_company": ""
-        }
-    },
+
     {
         "model": "MusicApp.artist",
         "pk": 7,

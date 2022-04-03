@@ -7,7 +7,7 @@ from .models import User, Attribute, Artist, Rating
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = [ 'id', 'username', 'password']
+        fields = ['username', 'password']
 
 class AttributeSerializer(serializers.ModelSerializer):
     class Meta:
