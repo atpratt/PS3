@@ -50,8 +50,8 @@ function App() {
   ];
 
   const errors = {
-    uname: "invalid username",
-    pass: "invalid password"
+    uname: "That username doesn't exist!",
+    pass: "That password is incorrect! Please try again."
   };
 
   const handleSubmit = (event) => {
@@ -116,5 +116,6 @@ function App() {
 
 const rootElement = document.getElementById("root");
 ReactDOM.render(<App />, rootElement);
+
 export default App;
 
