@@ -1,5 +1,3 @@
-// frontend/src/components/Modal.js
-
 import React from "react";
 // We would like to use a modal (small window) to show details of a task.
 import {
@@ -23,7 +21,7 @@ export default class CustomModal extends React.Component {
     // It can contain as many properties as you like.
     // Here we define one property called activeItem.
     this.state = {
-      activeRating: this.props.activeRating,
+      activeBio: this.props.activeBio,
     };
   }
 
@@ -47,7 +45,7 @@ export default class CustomModal extends React.Component {
     // {"id": 3, "title": "My Task", "description": "Wash Dishes", "completed": true}.
     // [name]: value sets the name of the task to the new value the user entered
     // (e.g., title to "Another Task" or description to "Sweep floor").
-    const activeRating = { ...this.state.activeRating, [name]: value };
+    const activeBio = { .....this.state.activeBio, [name]: value };
     // To change a value in the `state` object for rendering, use the `this.setState()`
     // method. If you would not do so, the text shown to the user in the textbox, e.g.,
     // for the title of the new task would not change.
@@ -61,48 +59,73 @@ export default class CustomModal extends React.Component {
   render() {
     // The modal has three properties: toggle, onSave, and activeItem.
     // See App.js.
+    // artist_name = models.CharField(max_length = 200, primary_key = True, default='SOME STRING')
+    // album = models.CharField(max_length = 200, default='SOME STRING')
+    // genre = models.CharField(max_length = 200, default='SOME STRING')
+    // year = models.IntegerField(default=2000)
+    // record_company = models.CharField
     const { toggle, onSave } = this.props;
     return (
       <Modal isOpen={true} toggle={toggle}>
-        <ModalHeader  toggle={toggle}> New Song Rating </ModalHeader>
+        <ModalHeader  toggle={toggle}> New Bio </ModalHeader>
         <ModalBody>
           <Form>
             <FormGroup>
-              <Label for="username">Username of Rater</Label>
+              <Label for="artist_name">Artist Name</Label>
               <Input
                 type="text"
-                name="username"
-                value={this.state.activeRating.username}
+                name="artist_name"
+                value={this.state.activeBio.artist_name}
                 // "this" refers to the current event. If there is a change,
                 // it will be passed to the handleChange function above.
                 onChange={this.handleChange}
-                placeholder="Enter Username"
+                placeholder="Enter Artist Name"
               />
             </FormGroup>
             <FormGroup>
-              <Label for="song">Song Title</Label>
+              <Label for="album">Album Title</Label>
               <Input
                 type="text"
-                name="song"
-                value={this.state.activeRating.song}
+                name="album"
+                value={this.state.activeBio.album}
                 onChange={this.handleChange}
-                placeholder="Enter Song Title"
+                placeholder="Enter Album Title"
               />
             </FormGroup>
             <FormGroup>
-              <Label for="rating">Rating</Label>
+              <Label for="genre">Genre</Label>
+              <Input
+                type="text"
+                name="genre"
+                value={this.state.activeBio.genre}
+                onChange={this.handleChange}
+                placeholder="Enter Genre"
+              />
+            </FormGroup>
+            <FormGroup>
+              <Label for="year">Release Year</Label>
               <Input
                 type="number"
-                name="rating"
-                value={this.state.activeRating.rating}
+                name="year"
+                value={this.state.activeBio.year}
                 onChange={this.handleChange}
-                placeholder="Enter Rating"
+                placeholder="Enter Release Year"
+              />
+            </FormGroup>
+            <FormGroup>
+              <Label for="record_company">Record Company</Label>
+              <Input
+                type="text"
+                name="record_company"
+                value={this.state.activeBio.record_company}
+                onChange={this.handleChange}
+                placeholder="Enter Record Company"
               />
             </FormGroup>
           </Form>
         </ModalBody>
         <ModalFooter>
-          <Button color="success" onClick={() => onSave(this.state.activeRating)}>
+          <Button color="success" onClick={() => onSave(this.state.activeBio)}>
             Save
           </Button>
         </ModalFooter>
