@@ -157,7 +157,7 @@ class App extends React.Component {
     // We are using async calls here. Refer to the JavaScript
     // tutorial for how they work.
     axios
-      .get("http://localhost:8000/api/ratings/")
+      .get("http://localhost:8000/api/rating/")
       .then(res => this.setState({ ratingList: res.data }))
       .catch(err => console.log(err));
   };
@@ -182,14 +182,14 @@ class App extends React.Component {
           // set the left, i.e., Complete view, to active.
           className={this.state.viewCompleted ? "active" : ""}
         >
-          Complete
+          Ratings
         </span>
         {/* Incomplete view active. */}
         <span
           onClick={() => this.displayCompleted(false)}
           className={this.state.viewCompleted ? "" : "active"}
         >
-          Incomplete
+          Bios
         </span>
       </div>
     );
@@ -245,7 +245,7 @@ class App extends React.Component {
     // Upon toggle, set the modal to false, i.e., do not show the modal.
     this.setState({ modal: !this.state.modal });
   };
-  handleSubmit = rating => {
+  ratingSubmit = rating => {
     this.toggle();
     // If the item already exists in our database, i.e., we have an id for our
     // item, use a PUT request to modify it.
@@ -255,20 +255,20 @@ class App extends React.Component {
         // Backticks are useful because they allow us to use dynamic variables,
         // i.e., the item.id in this case. You can use this technique also
         // for authentication tokens.
-        .put(`http://localhost:8000/api/ratings/${rating.id}/`, rating)
+        .put(`http://localhost:8000/api/rating/${rating.id}/`, rating)
         .then(res => this.refreshList());
       return;
     }
     // If the item does not yet exist, use a POST request to write to the
     // database.
     axios
-      .post("http://localhost:8000/api/ratings/", rating)
+      .post("http://localhost:8000/api/rating/", rating)
       .then(res => this.refreshList());
   };
   // If the user triggers a delete event, send a delete request.
-  handleDelete = rating => {
+  ratingDelete = rating => {
     axios
-      .delete(`http://localhost:8000/api/ratings/${rating.id}`)
+      .delete(`http://localhost:8000/api/rating/${rating.id}`)
       .then(res => this.refreshList());
   };
   // If the user triggers a createItem event (by clicking on Add task), create
