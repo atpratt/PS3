@@ -228,7 +228,7 @@ class App extends React.Component {
             Edit{" "}
           </button>
           <button
-            onClick={() => this.handleDelete(rating)}
+            onClick={() => this.ratingDelete(rating)}
             className="btn btn-danger"
           >
             Delete{" "}
@@ -309,13 +309,12 @@ class App extends React.Component {
           <Modal
             activeRating={this.state.activeRating}
             toggle={this.toggle}
-            onSave={this.handleSubmit}
+            onSave={this.ratingSubmit}
           />
         ) : null}
       </main>
     );
   }
 }
-
 // Export our App so that it can be rendered in index.js.
 export default App;
