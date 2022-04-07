@@ -25,11 +25,8 @@ export default class CustomModal extends React.Component {
     };
   }
 
-  // Whenver we enter changes into our form, e.g., for the title of our task,
-  // we want the change to be immediately detected. This is what happens when
-  // this function is called below with onChange={this.handleChange}.
-  // handleChange takes an event argument, i.e., a change in title, descripton,
-  // or checkbox.
+  // we want the change to be immediately detected : onChange={this.handleChange}.
+  // handleChange takes an event argument
   handleChange = (event) => {
     // An event has a target, thus, event.target gives us the event's DOM element, e.g.,
     // <input name="description" placeholder="Enter Todo description" type="text" class="form-control" value="My Task">.
@@ -45,7 +42,7 @@ export default class CustomModal extends React.Component {
     // {"id": 3, "title": "My Task", "description": "Wash Dishes", "completed": true}.
     // [name]: value sets the name of the task to the new value the user entered
     // (e.g., title to "Another Task" or description to "Sweep floor").
-    const activeBio = { .....this.state.activeBio, [name]: value };
+    const activeBio = { ...this.state.activeBio, [name]: value };
     // To change a value in the `state` object for rendering, use the `this.setState()`
     // method. If you would not do so, the text shown to the user in the textbox, e.g.,
     // for the title of the new task would not change.
