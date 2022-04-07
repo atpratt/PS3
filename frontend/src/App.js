@@ -1,3 +1,6 @@
+//APP.JS
+
+
 // import logo from './logo.svg';
 // import './App.css';
 // import React, { useState } from "react";
@@ -119,17 +122,14 @@
 
 // export default App;
 
+
 import React from "react";
 import Modal from "./components/ratingModal";
 import axios from "axios";
 
-// We are creating a class component for our todo list and individual todo list
-// items.
 class App extends React.Component {
   constructor(props) {
     super(props);
-    // The state object is initialized in the constructor of the component.
-    // It has three properties: viewCompleted, activeItem, and todoList.
     this.state = {
       viewCompleted: false,
       activeRating: {
@@ -140,63 +140,37 @@ class App extends React.Component {
       ratingList: []
     };
   }
+
   // The `componentDidMount()` method is called after the component is rendered,
   // at which point we call refreshList.
   componentDidMount() {
     this.refreshList();
   }
+
   // You can also define your custom functions in components as below.
   // We are using JavaScript arrow functions. There are no parameters () and 
   // the function body executes an HTTP request. 
   refreshList = () => {
-    // We are using the axios library for making HTTP requests.
-    // Here is a GET request to our api/todos path.
     // If it succeeds, we set the todoList to the resolved data.
     // Otherwise, we catch the error and print it to the console.
-    // You can test these requests to your API using Postman.
-    // We are using async calls here. Refer to the JavaScript
-    // tutorial for how they work.
     axios
       .get("http://localhost:8000/api/rating/")
       .then(res => this.setState({ ratingList: res.data }))
       .catch(err => console.log(err));
+      //this is a HTTP get request for the ratingList
   };
+
   displayCompleted = status => {
     if (status) {
       // To change a value in the state object, use the this.setState() method.
       // When a value in the state object changes, the component will re-render,
-      // meaning that the output will change according to the new value(s).
       return this.setState({ viewCompleted: true });
     }
     return this.setState({ viewCompleted: false });
   };
-  // Function for switching between the Complete and Incomplete task views.
-  renderTabList = () => {
-    return (
-      <div className="tab-list">
-        {/* Complete view active */}
-        <span
-          onClick={() => this.displayCompleted(true)}
-          // A ternary within curly braces in JSX.
-          // If the call to displayCompted returns viewCompleted as true,
-          // set the left, i.e., Complete view, to active.
-          className={this.state.viewCompleted ? "active" : ""}
-        >
-          Ratings
-        </span>
-        {/* Incomplete view active. */}
-        <span
-          onClick={() => this.displayCompleted(false)}
-          className={this.state.viewCompleted ? "" : "active"}
-        >
-          Bios
-        </span>
-      </div>
-    );
-  };
-  // Function for managing the edit and delete views.
+
+  
   renderRating = () => {
-    // Destructuring assignment assigning viewCompleted = this.state.viewCompleted
     const { viewCompleted } = this.state;
     // filter is a callback function that returns the elements of an array 
     // meeting a particular condition; here all items that are viewCompleted.
@@ -204,7 +178,6 @@ class App extends React.Component {
       rating => rating.completed === viewCompleted
     );
     // The items are then mapped to their UI elements based on their id, i.e.,
-    // item.id, item.description, and item.title.
     return newRating.map(rating => (
       <li
         key={rating.id}
@@ -228,7 +201,7 @@ class App extends React.Component {
             Edit{" "}
           </button>
           <button
-            onClick={() => this.ratingDelete(rating)}
+            onClick={() => this.handleDelete(rating)}
             className="btn btn-danger"
           >
             Delete{" "}
@@ -297,7 +270,7 @@ class App extends React.Component {
                   Add Rating
                 </button>
               </div>
-              {this.renderTabList()}
+              {this.renderRating()}
               <ul className="list-group list-group-flush">
                 {this.renderRating()}
               </ul>
@@ -309,12 +282,13 @@ class App extends React.Component {
           <Modal
             activeRating={this.state.activeRating}
             toggle={this.toggle}
-            onSave={this.ratingSubmit}
+            onSave={this.handleSubmit}
           />
         ) : null}
       </main>
     );
   }
 }
+
 // Export our App so that it can be rendered in index.js.
 export default App;
