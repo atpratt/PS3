@@ -60,7 +60,7 @@ const Attributes = ({ onAdd }) => {
                         <h3 className = "float-left">Create a new Bio</h3>
                         <Form onSubmit={onSubmit} className = "mt-4">
                             <Form.Group className="mb-3" controlId="formBasicName">
-                                <Form.Label>{songId}</Form.Label>
+                                <Form.Label>{artistId}</Form.Label>
                                 <Form.Control
                                     type = "text"
                                     placeholder = "Enter Artist Name"
@@ -75,7 +75,7 @@ const Attributes = ({ onAdd }) => {
                                     type = "text"
                                     placeholder = "Enter the name of the album"
                                     value = {album}
-                                    onChange= {(e) => setSong(e.target.value)}
+                                    onChange= {(e) => setAlbum(e.target.value)}
                                 />
 
                             </Form.Group>
