@@ -13,6 +13,22 @@
   }
 }
 
+#Blue-Outline {
+  border: 5px solid rgb(46, 35, 146);
+}
+
+#cent {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.Blue {
+  background-color: rgb(116, 174, 212);
+  border: 5px solid rgb(46, 35, 146);
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -24,8 +40,26 @@
   color: white;
 }
 
+.navbar li {
+  width: 150 px;
+  background-color: rgb(36, 71, 110);
+  border: 1px solid rgb(197, 206, 219);
+  padding: 10px;
+  display: inline-block;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .App-link {
   color: #61dafb;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
 
 @keyframes App-logo-spin {
