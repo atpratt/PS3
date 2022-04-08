@@ -181,4 +181,4 @@ const Attributes = ({ onAdd }) => {
 
 };
 
-export default Ratings;
+export default Attributes;
