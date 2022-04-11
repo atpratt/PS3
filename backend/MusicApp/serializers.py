@@ -17,7 +17,7 @@ class AttributeSerializer(serializers.ModelSerializer):
 class ArtistSerializer(serializers.ModelSerializer):
     class Meta:
         model = Artist
-        fields = ['song', 'artist']
+        fields = ['song', 'artist', 'average_rating']
 
 class RatingSerializer(serializers.ModelSerializer):
     class Meta:

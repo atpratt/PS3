@@ -4,9 +4,10 @@ import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Import the Modals we want to use
-import RatingModal from "./components/RatingModal"
-import AttributeModal from "./components/AttributeModal"
+// import RatingModal from "./components/RatingModal"
+// import AttributeModal from "./components/AttributeModal"
 import {useState, useEffect} from 'react';
+import SongList from "./components/SongList"
 
 function App () {
 
@@ -32,17 +33,20 @@ function App () {
 
       <div class="Blue">
         <h3 id="Ratings"></h3>
-        <RatingModal/>
+        {/* <RatingModal/> */}
       </div>
 
       <div class="Blue">
         <h3 id="Attribute"></h3>
-        <AttributeModal/>
+        {/* <AttributeModal/> */}
       </div>
 
+    <div>
+      <SongList/>
+    </div>
 
     </div>
+    
   );
 }
-// Export our App so that it can be rendered in index.js, where it is imported.
 export default App;

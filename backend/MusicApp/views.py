@@ -157,3 +157,26 @@ class AttributeViewSet(viewsets.ModelViewSet):
     serializer_class = AttributeSerializer
     queryset = Attribute.objects.all()
 
+def averagerating(song):
+		ratings = Rating.objects.filter(song=song);
+		totalrating = 0;
+		if(ratings.count() == 0):
+			return 0;
+		for rating in ratings:
+			totalrating += rating.rating;
+		return totalrating/ratings.count();
+
+def getsongs(request):
+	if(request.method == 'GET'):
+		queryset = Artist.objects.all();
+		for query in queryset:
+			query.averagerating = averagerating(query.song);
+		queryset_json = serializers.serialize('json', queryset);
+		return HttpResponse(queryset_json, content_type='application/json')
+
+def deletesong(request):
+	if(request.method == 'POST'):
+		song_title = request.POST.get("song");
+		Rating.objects.filter(song = song_title).delete();
+		Artist.objects.filter(song = song_title).delete();
+		return HttpResponse("Song successfully deleted.");
