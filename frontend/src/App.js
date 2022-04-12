@@ -8,6 +8,7 @@ import RatingsModal from "./components/RatingsModal"
 import AttributeModal from "./components/AttributeModal"
 import {useState, useEffect} from 'react';
 import SongList from "./components/SongList"
+import BioList from "./components/BioList"
 
 function App () {
 
@@ -31,6 +32,17 @@ function App () {
         
       </div>
 
+      <div class="Blue">
+        <h3 id="SongLists"></h3>
+        <h2>Song List</h2>
+        <SongList/>
+      </div>
+
+      <div class="Blue">
+        <h3 id="SongLists"></h3>
+        <h2>Artist Biographies</h2>
+        <BioList/>
+      </div>
 
       <div class="Blue">
         <h3 id="Ratings"></h3>
@@ -42,11 +54,7 @@ function App () {
         <AttributeModal/>
       </div>
 
-      <div class="Blue">
-        <h3 id="SongLists"></h3>
-        <h2>Song List</h2>
-        <SongList/>
-      </div>
+      
 
     </div>
     

@@ -20,28 +20,28 @@ from .serializers import UserSerializer, AttributeSerializer, ArtistSerializer, 
 # 	return render(request, 'MusicApp/index.html', context)
 
 
-# @csrf_exempt
-# def user_registration(request):
-# 	if request.method == 'POST':
-# 		password = request.POST.get("password");
-# 		username = request.POST.get("username");
+@csrf_exempt
+def user_registration(request):
+	if request.method == 'POST':
+		password = request.POST.get("password");
+		username = request.POST.get("username");
 		
-#         #check if the username already exists
-# 		try:
-# 			user = User.objects.get(username = username)
-# 		except User.DoesNotExist:
-# 			user = None
+        #check if the username already exists
+		try:
+			user = User.objects.get(username = username)
+		except User.DoesNotExist:
+			user = None
 
-#         #if username doesn't exist and nothing left blank
-# 		if(user == None and username != "" and password != ""):
-# 			new_User = User(username = username, password = password)
-# 			new_User.save()
-# 		else:
-# 			return HttpResponse("We'll need both a username and password!");
-# 	else:
-# 		return HttpResponse("That username is already taken!");
+        #if username doesn't exist and nothing left blank
+		if(user == None and username != "" and password != ""):
+			new = User(username = username, password = password)
+			new.save()
+		else:
+			return HttpResponse("We'll need both a username and password!");
+	else:
+		return HttpResponse("That username is already taken!");
 
-# 	return HttpResponse("Successfully registered new user!");
+	return HttpResponse("Successfully registered new user!");
 
 # @csrf_exempt
 # def rate(request):
@@ -159,12 +159,12 @@ class AttributeViewSet(viewsets.ModelViewSet):
 
 def averagerating(song):
 		ratings = Rating.objects.filter(song=song);
-		totalrating = 0;
+		total = 0;
 		if(ratings.count() == 0):
 			return 0;
 		for rating in ratings:
-			totalrating += rating.rating;
-		return totalrating/ratings.count();
+			total += rating.rating;
+		return total/ratings.count();
 
 def getsongs(request):
 	if(request.method == 'GET'):
@@ -186,4 +186,17 @@ def deleterating(request):
 		rat_title = request.POST.get("rating");
 		Rating.objects.filter(rating = rat_title).delete();
 		Artist.objects.filter(rating = rat_title).delete();
-		return HttpResponse("Song successfully deleted.");
+		return HttpResponse("Rating successfully deleted.");
+
+def getbios(request):
+	if(request.method == 'GET'):
+		queryset = Attribute.objects.all();
+		queryset_json = serializers.serialize('json', queryset);
+		return HttpResponse(queryset_json, content_type='application/json')
+
+def deletebio(request):
+    if(request.method == 'POST'):
+        artist_name = request.POST.get("artist_name");
+        Artist.objects.filter(artist_name = artist_name).delete();
+        return HttpResponse("Bio successfully deleted.");
+

@@ -23,28 +23,28 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
-class SongList extends React.Component {
+class BioList extends React.Component {
     constructor() {
         super();
         this.state = { data: [] };
       }
     
     componentDidMount(){
-        axios.get('http://localhost:8000/getsongs/')//.then(res => res.json())
+        axios.get('http://localhost:8000/getbios/')//.then(res => res.json())
         .then(json => this.setState({ data: json.data }));
 
     }
 
     reset(){
-      axios.get('http://localhost:8000/getsongs/')//.then(res => res.json())
+      axios.get('http://localhost:8000/getbios/')//.then(res => res.json())
       .then(json => this.setState({ data: json.data }));
 
   }
 
     handleHide(pk) {
       const formData = new FormData();
-      formData.append('song', pk.pk);
-      axios.post('http://localhost:8000/deletesong/', formData);
+      formData.append('artist_name', pk.pk);
+      axios.post('http://localhost:8000/deletebio/', formData);
 
       var array = [...this.state.data];
       var idx = array.indexOf(pk);
@@ -60,15 +60,21 @@ class SongList extends React.Component {
 
     handleSort(mode){
       var data = this.state.data;
-      if(mode == "song_title"){
+      if(mode == "artist_name"){
         data.sort((a, b) => (a.pk.toLowerCase() > b.pk.toLowerCase()) ? 1 : -1)
       }
-      if(mode == "artist_name"){
-        data.sort((a, b) => (a.fields.artist.toLowerCase() > b.fields.artist.toLowerCase()) ? 1 : -1)
+      if(mode == "album"){
+        data.sort((a, b) => (a.fields.album.toLowerCase() > b.fields.album.toLowerCase()) ? 1 : -1)
       }
       this.setState({ data: data });
-      if(mode == "rating"){
-        data.sort((a, b) => (a.fields.average_rating < b.fields.average_rating) ? 1 : -1)
+      if(mode == "genre"){
+        data.sort((a, b) => (a.fields.genre.toLowerCase() > b.fields.genre.toLowerCase()) ? 1 : -1)
+      }
+      if(mode == "year"){
+        data.sort((a, b) => (a.fields.year < b.fields.year) ? 1 : -1)
+      }
+      if(mode == "record_company"){
+        data.sort((a, b) => (a.fields.record_company.toLowerCase() > b.fields.record_company.toLowerCase()) ? 1 : -1)
       }
     }
 
@@ -87,7 +93,7 @@ class SongList extends React.Component {
         }));
 
         const classes = this.props;
-        console.log("SongList" + JSON.stringify(this.state.data[0]));
+        console.log("BioList" + JSON.stringify(this.state.data[0]));
         if(this.state.data == []){
             console.log("EMPTY");
             return "error";
@@ -99,27 +105,40 @@ class SongList extends React.Component {
           <Box mx="auto" m={2} pt={3} px={3}>
           <Button variant="outlined" size="small" color="primary" mt={1} style={{
                             backgroundColor: "Blue",
-                            color: "white"}} onClick={() => this.handleSort("song_title")}>
-                      Sort Songs by their Title
-          </Button>
-
-          <Button size="small" color="primary" style={{
-                            backgroundColor: "Blue",
                             color: "white"}} onClick={() => this.handleSort("artist_name")}>
-                      Sort Songs by the Artist's Name
+                      Sort by Artist
           </Button>
 
           <Button size="small" color="primary" style={{
                             backgroundColor: "Blue",
-                            color: "white"}} onClick={() => this.handleSort("rating")}>
-                      Sort Songs by their Rating
+                            color: "white"}} onClick={() => this.handleSort("album")}>
+                      Sort by Album
+          </Button>
+
+          <Button size="small" color="primary" style={{
+                            backgroundColor: "Blue",
+                            color: "white"}} onClick={() => this.handleSort("genre")}>
+                      Sort by Genre
+          </Button>
+
+          <Button size="small" color="primary" style={{
+                            backgroundColor: "Blue",
+                            color: "white"}} onClick={() => this.handleSort("year")}>
+                      Sort by Release Year
+          </Button>
+
+          <Button size="small" color="primary" style={{
+                            backgroundColor: "Blue",
+                            color: "white"}} onClick={() => this.handleSort("record_company")}>
+                      Sort by Record Company
           </Button>
 
           <Button size="small" color="primary" style={{
                             backgroundColor: "Blue",
                             color: "white"}} onClick={() => this.reset()}>
-                      Reset Songs
+                      Show All Bios
           </Button>
+
           </Box>
           </Grid>
 
@@ -130,13 +149,10 @@ class SongList extends React.Component {
                 <Card variant="outlined" className={classes.card}>
                   <CardContent className={classes.cardContent}>
                     <Typography variant="h5" component="h2">
-                        "{card.pk}"
-                    </Typography>
-                    <Typography variant="subtitle1" component="h2">
-                        Performed by {card.fields.artist}
+                        {card.pk}
                     </Typography>
 
-                    Has been given an average rating of {card.fields.average_rating}
+                    Released the {card.fields.genre} album {card.fields.album} through {card.fields.record_company} in {card.fields.year}
                     
                   </CardContent>
                   <CardActions style={{justifyContent: 'center'}}>
@@ -155,4 +171,4 @@ class SongList extends React.Component {
         )
     }
   }
-export default withStyles(useStyles, { withTheme: true }) (SongList);
+export default withStyles(useStyles, { withTheme: true }) (BioList);

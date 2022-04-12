@@ -19,11 +19,12 @@ urlpatterns = [
     path('api/', include(router.urls)),
     path('getsongs/', views.getsongs),
     path('deletesong/', views.deletesong),
+    path('getbios/', views.getsongs),
+    path('deletebio/', views.deletesong),
     #path('', views.index, name='index'),
-    # path('registration/', views.user_registration, name='registration'),
+    path('user_registration/', views.user_registration),
     # path('songretrieval/', views.song_retrieval, name='songretrieval'),
     # path('artistretrieval/', views.artist_retrieval, name='artistretrieval'),
     # path('rate/', views.rate, name="rate"),
-    # path('listsongs/', views.list_songs, name="listsongs"),
-    # path('deletesong/', views.delete_song, name="deletesong"),
+    
 ]
