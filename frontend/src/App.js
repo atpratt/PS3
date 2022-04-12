@@ -44,7 +44,7 @@ function App () {
 
       <div class="Blue">
         <h3 id="SongLists"></h3>
-        <h2>SongList</h2>
+        <h2>Song List</h2>
         <SongList/>
       </div>
 

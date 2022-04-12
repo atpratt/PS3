@@ -44,7 +44,7 @@ const Ratings = ({ onAdd }) => {
     const onDelete = (id) => {
         //uses the API delete to delete a rating based on the id
         //then the refresh is called to update
-        API.delete(`/deleterating/${id}`).then((res) => refreshRatings());
+        API.delete(`/rating/${id}`).then((res) => refreshRatings());
     }
 
     // const handleDelete = (pk) => {
@@ -72,7 +72,7 @@ const Ratings = ({ onAdd }) => {
                         <h3>Create New Rating</h3>
                         <Form onSubmit={onSubmit}>
                             <Form.Group>
-                                <Form.Label>{songId}</Form.Label>
+                                <Form.Label>User Name</Form.Label>
                                 <Form.Control
                                     type = "text"
                                     placeholder = "Enter Name"
@@ -96,7 +96,7 @@ const Ratings = ({ onAdd }) => {
                                 <Form.Label>Rating</Form.Label>
                                 <Form.Control 
                                     type = "text"
-                                    placeholder = "Enter your Rating"
+                                    placeholder = "Enter your Rating (1, 2, 3, 4, or 5)"
                                     value = {rating}
                                     onChange= {(e) => setRating(e.target.value)}
                                 />

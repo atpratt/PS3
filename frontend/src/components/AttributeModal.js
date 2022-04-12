@@ -60,7 +60,7 @@ const Attributes = ({ onAdd }) => {
                         <h3>Create New Attribute</h3>
                         <Form onSubmit={onSubmit}>
                             <Form.Group>
-                                <Form.Label>{artistId}</Form.Label>
+                                <Form.Label>Artist Name</Form.Label>
                                 <Form.Control
                                     type = "text"
                                     placeholder = "Enter Artist Name"

@@ -12,14 +12,14 @@ class UserSerializer(serializers.ModelSerializer):
 class AttributeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Attribute
-        fields = ['artist_name', 'album', "genre", "year", "record_company"]
+        fields = [ 'id', 'artist_name', 'album', "genre", "year", "record_company"]
 
 class ArtistSerializer(serializers.ModelSerializer):
     class Meta:
         model = Artist
-        fields = ['song', 'artist', 'average_rating']
+        fields = ['id', 'song', 'artist', 'average_rating']
 
 class RatingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Rating
-        fields = ['username', 'song', 'rating']
+        fields = ['id', 'username', 'song', 'rating']
