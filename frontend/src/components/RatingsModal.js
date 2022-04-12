@@ -30,20 +30,26 @@ const Ratings = ({ onAdd }) => {
       //calls the refresh to update the ratings that are showed to the user
       let r = {username, song, rating}
       API.post("/rating/", r).then(() => refreshRatings());
+      //API.put(`/rating/${rating.id}/`, r).then(() => refreshRatings());
     };
 
-    const onUpdate = (id) => {
-        //when updted, get the song nd path the update
+    const onUpdate = () => {
+        //when updted, get the song and patch the update
         //then the refresh is called to update
-        let s = {song}
-        API.patch(`/rating/${id}/`, s).then((res) => refreshRatings());
+        let s = {rating}
+        //API.patch(`/rating/${id}/`, s).then((res) => refreshRatings());
+        API.patch(`/rating/${this.songId}/`, s).then((res) => refreshRatings());
     }
 
     const onDelete = (id) => {
         //uses the API delete to delete a rating based on the id
         //then the refresh is called to update
-        API.delete(`/rating/${id}`).then((res) => refreshRatings());
+        API.delete(`/deleterating/${id}`).then((res) => refreshRatings());
     }
+
+    // const handleDelete = (pk) => {
+    //     API.delete('/deleterating/', pk).then((res) => refreshRatings());
+    // };
 
     function selectRating(id){
         //filter function to go through the ratings based on ID and sets the current paramters based on the r
@@ -108,14 +114,14 @@ const Ratings = ({ onAdd }) => {
                               Save
                             </Button> 
 
-                            <Button
+                            {/* <Button
                                 variant = "primary"
                                 type = "button"
                                 onClick = {() => onUpdate(songId)}
                                 className = "mx-2"
                             >
                                 Update
-                            </Button>
+                            </Button> */}
                         </div>
 
                     </Form>
@@ -129,7 +135,7 @@ const Ratings = ({ onAdd }) => {
                                     <th scope = "col">Song Name</th>
 
                                     <th scope = "col">Rating</th>
-                                    <th scope = "col">Reviewer</th>
+                                    <th scope = "col">Rater</th>
                                     <th scope = "col"></th>
                                 </tr>
                             </thead>
@@ -143,13 +149,48 @@ const Ratings = ({ onAdd }) => {
                                             <td> {rating.rating}</td>
                                             <td> {rating.username}</td>
                                             <td>
+                                                {/* creating a form to update the rating with */}
+                                                <Form.Group >
+                                                    <Form.Label>Update Rating</Form.Label>
+                                                    <Form.Control 
+                                                        type = "text"
+                                                        placeholder = "Updated Rating"
+                                                        value = {rating}
+                                                        onChange= {(e) => setRating(e.target.value)}
+                                                    />
+                                                </Form.Group>
+
+                                                <Button
+                                                    variant= "primary"
+                                                    type = "submit"
+                                                    onClick = {(e) => onUpdate()}
+                                                    className = "mx-2"
+                                                >
+                                                Update
+                                                </Button>
+                                            </td>
+
+
+                                            <td>
+                                            <Button
+                                                variant= "primary"
+                                                type = "submit"
+                                                onClick = {onDelete(rating)}
+                                                className = "mx-2"
+                                            >
+                                            Delete
+                                            </Button> 
+                                            </td>
+                                            
+                                            
+                                            {/* <td>
                                                 <i
                                                     onClick = {() => selectRating(rating.id)}
                                                 ></i>
                                                 <i
                                                     onClick={() => onDelete(rating.id)}
                                                 ></i>
-                                            </td>
+                                            </td> */}
                                         </tr>
                                     );
                                 })}
@@ -165,3 +206,17 @@ const Ratings = ({ onAdd }) => {
 };
 
 export default Ratings;
+
+
+
+{/* <Form.Group >
+    <Form.Label>Update Rating</Form.Label>
+    <Form.Control 
+        type = "text"
+        placeholder = "Enter your Updated Rating"
+        value = {rating}
+        onChange= {(e) => setRating(e.target.value)}
+        onChange= {(e) => onUpdate(songId)}
+    />
+
+</Form.Group> */}

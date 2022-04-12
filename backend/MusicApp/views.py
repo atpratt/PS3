@@ -180,3 +180,10 @@ def deletesong(request):
 		Rating.objects.filter(song = song_title).delete();
 		Artist.objects.filter(song = song_title).delete();
 		return HttpResponse("Song successfully deleted.");
+
+def deleterating(request):
+	if(request.method == 'POST'):
+		rat_title = request.POST.get("rating");
+		Rating.objects.filter(rating = rat_title).delete();
+		Artist.objects.filter(rating = rat_title).delete();
+		return HttpResponse("Song successfully deleted.");

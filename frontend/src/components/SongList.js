@@ -28,13 +28,13 @@ class SongList extends React.Component {
       }
     
     componentDidMount(){
-        axios.get('http://localhost:8000/getallsongs/')//.then(res => res.json())
+        axios.get('http://localhost:8000/getsongs/')//.then(res => res.json())
         .then(json => this.setState({ data: json.data }));
 
     }
 
     refresh(){
-      axios.get('http://localhost:8000/getallsongs/')//.then(res => res.json())
+      axios.get('http://localhost:8000/getsongs/')//.then(res => res.json())
       .then(json => this.setState({ data: json.data }));
 
   }
@@ -54,6 +54,7 @@ class SongList extends React.Component {
       }
       
     }
+
 
     handleSort(mode){
       var data = this.state.data;
@@ -126,6 +127,7 @@ class SongList extends React.Component {
                     <Button position= "center" size="small" color="primary" onClick={() => this.handleDelete(card)}>
                       Delete 
                     </Button>
+
                   </CardActions>
                 </Card>
               </Grid>

@@ -4,8 +4,8 @@ import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Import the Modals we want to use
-// import RatingModal from "./components/RatingModal"
-// import AttributeModal from "./components/AttributeModal"
+import RatingsModal from "./components/RatingsModal"
+import AttributeModal from "./components/AttributeModal"
 import {useState, useEffect} from 'react';
 import SongList from "./components/SongList"
 
@@ -19,6 +19,7 @@ function App () {
             <li><a href="#About">Simply Music</a></li>
             <li><a href="#Ratings">Rate a Song</a></li>
             <li><a href="#Attribute">View Attributes</a></li>
+            <li><a href="#SongLists">Song List</a></li>
         </ul>
       </div>
 
@@ -33,17 +34,19 @@ function App () {
 
       <div class="Blue">
         <h3 id="Ratings"></h3>
-        {/* <RatingModal/> */}
+        <RatingsModal/>
       </div>
 
       <div class="Blue">
         <h3 id="Attribute"></h3>
-        {/* <AttributeModal/> */}
+        <AttributeModal/>
       </div>
 
-    <div>
-      <SongList/>
-    </div>
+      <div class="Blue">
+        <h3 id="SongLists"></h3>
+        <h2>SongList</h2>
+        <SongList/>
+      </div>
 
     </div>
     

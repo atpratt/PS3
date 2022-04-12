@@ -17,7 +17,7 @@ app_name = "MusicApp"
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
-    path('getsongs/', views.getallsongs),
+    path('getsongs/', views.getsongs),
     path('deletesong/', views.deletesong),
     #path('', views.index, name='index'),
     # path('registration/', views.user_registration, name='registration'),

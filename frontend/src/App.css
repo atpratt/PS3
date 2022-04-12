@@ -37,13 +37,13 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: rgb(252, 249, 249);
 }
 
 .navbar li {
   width: 150 px;
   background-color: rgb(36, 71, 110);
-  border: 1px solid rgb(197, 206, 219);
+  border: 1px solid rgb(7, 17, 31);
   padding: 10px;
   display: inline-block;
   text-align: center;
