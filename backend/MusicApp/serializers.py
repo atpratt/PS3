@@ -7,19 +7,19 @@ from .models import User, Attribute, Artist, Rating
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['id', 'username', 'password']
+        fields = ['username', 'password']
 
 class AttributeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Attribute
-        fields = [ 'id', 'artist_name', 'album', "genre", "year", "record_company"]
+        fields = ['artist_name', 'album', "genre", "year", "record_company"]
 
 class ArtistSerializer(serializers.ModelSerializer):
     class Meta:
         model = Artist
-        fields = ['id', 'song', 'artist', 'average_rating']
+        fields = ['song', 'artist', 'average_rating']
 
 class RatingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Rating
-        fields = ['id', 'username', 'song', 'rating']
+        fields = ['username', 'song', 'rating']

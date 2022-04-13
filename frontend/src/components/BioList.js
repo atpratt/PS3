@@ -30,13 +30,13 @@ class BioList extends React.Component {
       }
     
     componentDidMount(){
-        axios.get('http://localhost:8000/getbios/')//.then(res => res.json())
+        axios.get('http://localhost:8000/getbios/')
         .then(json => this.setState({ data: json.data }));
 
     }
 
     reset(){
-      axios.get('http://localhost:8000/getbios/')//.then(res => res.json())
+      axios.get('http://localhost:8000/getbios/')
       .then(json => this.setState({ data: json.data }));
 
   }
@@ -50,7 +50,7 @@ class BioList extends React.Component {
       var idx = array.indexOf(pk);
       if (idx != -1) {
         array.splice(idx, 1);
-        this.setState({ data: array}, () => {
+        this.setState({data: array}, () => {
           console.log(this.state.data)
         });
       }

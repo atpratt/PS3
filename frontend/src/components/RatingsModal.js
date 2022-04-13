@@ -29,34 +29,34 @@ const Ratings = ({ onAdd }) => {
       //this only posts for users and songs that exist
       //calls the refresh to update the ratings that are showed to the user
       let r = {username, song, rating}
-      API.post("/rating/", r).then(() => refreshRatings());
-      //API.put(`/rating/${rating.id}/`, r).then(() => refreshRatings());
+      //API.post("/rating/", r).then(() => refreshRatings());
+      API.put(`/rating/${rating.pk}/`, r).then(() => refreshRatings());
     };
 
-    const onUpdate = () => {
+    const onUpdate = (pk) => {
         //when updted, get the song and patch the update
         //then the refresh is called to update
         let s = {rating}
-        //API.patch(`/rating/${id}/`, s).then((res) => refreshRatings());
-        API.patch(`/rating/${this.songId}/`, s).then((res) => refreshRatings());
+        API.patch(`/rating/${pk}/`, s).then((res) => refreshRatings());
+        // API.patch(`/rating/${this.songId}/`, s).then((res) => refreshRatings());
     }
 
-    const onDelete = (id) => {
+    const onDelete = (pk) => {
         //uses the API delete to delete a rating based on the id
         //then the refresh is called to update
-        API.delete(`/rating/${id}`).then((res) => refreshRatings());
+        API.delete(`/rating/${pk}`).then((res) => refreshRatings());
     }
 
     // const handleDelete = (pk) => {
     //     API.delete('/deleterating/', pk).then((res) => refreshRatings());
     // };
 
-    function selectRating(id){
+    function selectRating(pk){
         //filter function to go through the ratings based on ID and sets the current paramters based on the r
-        let r = ratings.filter((rating) => rating.id === id)[0];
+        let r = ratings.filter((rating) => rating.pk === pk)[0];
         setUsername(r.username);
         setSong(r.song);
-        setSongId(r.id);
+        setSongId(r.pk);
         setRating(r.rating); 
     }
 
@@ -143,7 +143,7 @@ const Ratings = ({ onAdd }) => {
                                 {ratings.map((rating, index) => {
                                     return (
                                         <tr key ="">
-                                            <th scope="row">{rating.id}</th>
+                                            <th scope="row">{rating.pk}</th>
                                             <td> {rating.song}</td>
                                             
                                             <td> {rating.rating}</td>

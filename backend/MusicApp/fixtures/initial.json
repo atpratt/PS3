@@ -55,6 +55,7 @@
         "fields": {
           "song": "Freeway",
           "artist": "Aimee Mann"
+          "average_rating" : 3
         }
     },
     {
@@ -63,6 +64,8 @@
         "fields": {
           "song": "Days of Wine and Roses",
           "artist": "Bill Evans"
+          "average_rating": 4.5
+
         }
     },
     {
@@ -71,6 +74,7 @@
         "fields": {
           "song": "These Walls",
           "artist": "Kendrick Lamar"
+          "average_rating": 4
         }
     },
     {
