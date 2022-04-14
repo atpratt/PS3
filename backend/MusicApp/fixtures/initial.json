@@ -31,7 +31,7 @@
         "pk": 4,
         "fields": {
           "artist_name": "Aimee Mann",
-          "album" : "Fucking Smilers",
+          "album" : "F*cking Smilers",
           "genre": "Alternative",
           "year": "2008",
           "record_company": "SuperEgo Records"
@@ -48,10 +48,64 @@
             "record_company": "Top Dawg Entertainment"
         }
     },
-
+    {
+        "model": "MusicApp.attribute",
+        "pk": 6,
+        "fields": {
+            "artist_name": "Michael Jackson",
+            "album" : "Thriller",
+            "genre": "R&B",
+            "year": "1990",
+            "record_company": "Big Boy Entertainment"
+        }
+    },
+    {
+        "model": "MusicApp.attribute",
+        "pk": 7,
+        "fields": {
+            "artist_name": "Jack Harlow",
+            "album" : "Way Out",
+            "genre": "Rap",
+            "year": "2021",
+            "record_company": "Big Rocks Records"
+        }
+    },
+    {
+        "model": "MusicApp.attribute",
+        "pk": 8,
+        "fields": {
+            "artist_name": "Luke Combs",
+            "album" : "Forever After All",
+            "genre": "Country",
+            "year": "2020",
+            "record_company": "Big Boy Tracks"
+        }
+    },
+    {
+        "model": "MusicApp.attribute",
+        "pk": 9,
+        "fields": {
+            "artist_name": "Morgan Wallen",
+            "album" : "Dangerous",
+            "genre": "Country",
+            "year": "2021",
+            "record_company": "Broadstreet Records"
+        }
+    },
+    {
+        "model": "MusicApp.attribute",
+        "pk": 10,
+        "fields": {
+            "artist_name": "Taylor Swift",
+            "album" : "Red",
+            "genre": "Country",
+            "year": "2008",
+            "record_company": "Swift Inc."
+        }
+    },
     {
         "model": "MusicApp.artist",
-        "pk": 7,
+        "pk": 11,
         "fields": {
           "song": "Freeway",
           "artist": "Aimee Mann"
@@ -60,7 +114,7 @@
     },
     {
         "model": "MusicApp.artist",
-        "pk": 8,
+        "pk": 12,
         "fields": {
           "song": "Days of Wine and Roses",
           "artist": "Bill Evans"
@@ -70,7 +124,7 @@
     },
     {
         "model": "MusicApp.artist",
-        "pk": 9,
+        "pk": 13,
         "fields": {
           "song": "These Walls",
           "artist": "Kendrick Lamar"
@@ -79,7 +133,7 @@
     },
     {
         "model": "MusicApp.rating",
-        "pk": 10,
+        "pk": 14,
         "fields": {
           "username": "Amelia-Earhart",
           "song": "Freeway",
@@ -88,7 +142,7 @@
     },
     {
         "model": "MusicApp.rating",
-        "pk": 11,
+        "pk": 15,
         "fields": {
           "username": "Amelia-Earhart",
           "song": "Days of Wine and Roses",
@@ -97,7 +151,7 @@
     },
     {
         "model": "MusicApp.rating",
-        "pk": 12,
+        "pk": 16,
         "fields": {
           "username": "Otto",
           "song": "Days of Wine and Roses",
@@ -106,11 +160,38 @@
     },
     {
         "model": "MusicApp.rating",
-        "pk": 13,
+        "pk": 17,
         "fields": {
           "username": "Amelia-Earhart",
           "song": "These Walls",
           "rating": 4
+        }
+    },
+    {
+        "model": "MusicApp.rating",
+        "pk": 18,
+        "fields": {
+          "username": "Otto",
+          "song": "Tyler Herro",
+          "rating": 5
+        }
+    },
+    {
+        "model": "MusicApp.rating",
+        "pk": 19,
+        "fields": {
+          "username": "Amelia-Earhart",
+          "song": "Billie Jean",
+          "rating": 3
+        }
+    },
+    {
+        "model": "MusicApp.rating",
+        "pk": 20,
+        "fields": {
+          "username": "Amelia-Earhart",
+          "song": "This Side of a Dust Cloud",
+          "rating": 2
         }
     }
 ]
