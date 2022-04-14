@@ -37,9 +37,9 @@ const Attributes = ({ onAdd }) => {
         API.patch(`/attribute/${id}/`, a_n).then((res) => refreshAttributes());
     }
 
-    const onDelete = (id) => {
-
-        API.delete(`/attribute/${id}`).then((res) => refreshAttributes());
+    const onDelete = (item) => {
+        console.log("ITEM ID IS:", item.id);
+        API.delete(`/attribute/${item.id}/`).then((res) => refreshAttributes());
     }
 
     function selectAttribute(id)
@@ -138,7 +138,7 @@ const Attributes = ({ onAdd }) => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {artists.map((artist_name, index) => {
+                                {artists.map((artist_name) => {
                                     return (
                                         <tr key ="">
                                             <td scope="row">{artist_name.id}</td>
@@ -151,7 +151,7 @@ const Attributes = ({ onAdd }) => {
                                             <Button
                                                 variant= "primary"
                                                 type = "submit"
-                                                onClick = {onDelete(artist_name.id)}
+                                                onClick = {() => onDelete(artist_name)}
                                                 className = "mx-2"
                                             >
                                             Delete

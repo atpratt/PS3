@@ -56,22 +56,24 @@ const Ratings = ({ onAdd }) => {
     const onUpdate = (item) => {
         //when updted, get the song and patch the update
         //then the refresh is called to update
-        let s = parseInt(ratingsDict["id"]);
+        let s = parseInt(ratingsDict["rating"]);
         
         console.log("id is:", item.id);
         console.log(ratingsDict);
-        console.log("rating is:" + s + "type is:" + typeof s);
+        console.log("rating is:" + " " + s + " " +  "type is: " + typeof s);
+        console.log(item)
+        var ids = item.id;
+        item['rating'] = s;
 
-        API.patch(`/rating/${item.id}/`, s).then((res) => refreshRatings());
-        //API.patch(`/rating/${rating}/`, s).then((res) => refreshRatings());
-        // API.patch(`/rating/${this.songId}/`, s).then((res) => refreshRatings());
+        API.patch(`/rating/${item.id}/`, item).then((res) => refreshRatings());
+        //API.put(`/rating/${item.id}/`, s).then((res) => refreshRatings());
     }
 
     const onDelete = (item) => {
         //item.preventDefault();
         //uses the API delete to delete a rating based on the id
         //then the refresh is called to update
-        console.log("ITEM ID IS:", item.id);
+        //console.log("ITEM ID IS:", item.id);
         API.delete(`/rating/${item.id}/`).then((res) => refreshRatings());
     }
 
@@ -185,7 +187,7 @@ const Ratings = ({ onAdd }) => {
                                                         type = "text"
                                                         placeholder = "New_Rating"
                                                         value = {ratingsDict[item.id]}
-                                                        onChange= {(e) =>{var id = item.id; setRatingsDict({ id: e.target.value})}}
+                                                        onChange= {(e) =>{var id = item.id; setRatingsDict({ rating: e.target.value})}}
                                                         
                                                     />
                                                 </Form.Group>
