@@ -54,7 +54,7 @@ function App () {
             <Typography variant="body2" color="textSecondary" align="center">
               {' '}
               <Link color="white" href="https://www.youtube.com/watch?v=HmP_wGYw1_g">
-                    Click here to see today's hottest song on Simply Music!
+                    Click HERE to see today's hottest song on Simply Music!
                 </Link>
               </Typography>
         
