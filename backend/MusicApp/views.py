@@ -76,7 +76,7 @@ def getsongs(request):
 	if(request.method == 'GET'):
 		queryset = Artist.objects.all();
 		for query in queryset:
-			query.averagerating = averagerating(query.song);
+			query.average_rating = averagerating(query.song);
 		queryset_json = serializers.serialize('json', queryset);
 		return HttpResponse(queryset_json, content_type='application/json')
 

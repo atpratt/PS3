@@ -108,8 +108,8 @@
         "pk": 11,
         "fields": {
           "song": "Freeway",
-          "artist": "Aimee Mann"
-          "average_rating" : 3
+          "artist": "Aimee Mann",
+          "average_rating": 3
         }
     },
     {
@@ -117,7 +117,7 @@
         "pk": 12,
         "fields": {
           "song": "Days of Wine and Roses",
-          "artist": "Bill Evans"
+          "artist": "Bill Evans",
           "average_rating": 4.5
 
         }
@@ -127,13 +127,31 @@
         "pk": 13,
         "fields": {
           "song": "These Walls",
-          "artist": "Kendrick Lamar"
+          "artist": "Kendrick Lamar",
           "average_rating": 4
         }
     },
     {
+      "model": "MusicApp.artist",
+      "pk": 14,
+      "fields": {
+        "song": "Tyler Herro",
+        "artist": "Jack Harlow",
+        "average_rating": 4
+      }
+  },
+  {
+    "model": "MusicApp.artist",
+    "pk": 15,
+    "fields": {
+      "song": "This Side of a Dust Cloud",
+      "artist": "Luke Combs",
+      "average_rating": 4.2
+    }
+},
+    {
         "model": "MusicApp.rating",
-        "pk": 14,
+        "pk": 16,
         "fields": {
           "username": "Amelia-Earhart",
           "song": "Freeway",
@@ -142,28 +160,10 @@
     },
     {
         "model": "MusicApp.rating",
-        "pk": 15,
-        "fields": {
-          "username": "Amelia-Earhart",
-          "song": "Days of Wine and Roses",
-          "rating": 4
-        }
-    },
-    {
-        "model": "MusicApp.rating",
-        "pk": 16,
-        "fields": {
-          "username": "Otto",
-          "song": "Days of Wine and Roses",
-          "rating": 5
-        }
-    },
-    {
-        "model": "MusicApp.rating",
         "pk": 17,
         "fields": {
           "username": "Amelia-Earhart",
-          "song": "These Walls",
+          "song": "Days of Wine and Roses",
           "rating": 4
         }
     },
@@ -172,7 +172,7 @@
         "pk": 18,
         "fields": {
           "username": "Otto",
-          "song": "Tyler Herro",
+          "song": "Days of Wine and Roses",
           "rating": 5
         }
     },
@@ -181,14 +181,35 @@
         "pk": 19,
         "fields": {
           "username": "Amelia-Earhart",
-          "song": "Billie Jean",
-          "rating": 3
+          "song": "These Walls",
+          "rating": 4
         }
     },
     {
         "model": "MusicApp.rating",
         "pk": 20,
         "fields": {
+    
+          "username": "Otto",
+          "song": "Tyler Herro",
+          "rating": 5
+        }
+    },
+    {
+        "model": "MusicApp.rating",
+        "pk": 21,
+        "fields": {
+          
+          "username": "Amelia-Earhart",
+          "song": "Billie Jean",
+          "rating": 3
+        }
+    },
+    {
+        "model": "MusicApp.rating",
+        "pk": 22,
+        "fields": {
+          
           "username": "Amelia-Earhart",
           "song": "This Side of a Dust Cloud",
           "rating": 2

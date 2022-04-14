@@ -1,3 +1,4 @@
+import '../App.css';
 import { useState, useEffect } from "react";
 import {Button, Form} from "react-bootstrap";
 import { ThemeConsumer } from "react-bootstrap/esm/ThemeProvider";

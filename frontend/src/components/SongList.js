@@ -17,6 +17,14 @@ const useStyles = makeStyles((theme) => ({
       height: '100%',
       display: 'flex',
       flexDirection: 'row',
+      color: 'pink',
+      borderRadius: 2,
+      typography: {
+        allVariants: {
+          fontFamily: 'serif',
+          textTransform: 'none',
+          fontSize: 16,}
+        }
     },
     cardContent: {
       flexGrow: 1,
@@ -127,12 +135,12 @@ class SongList extends React.Component {
             {this.state.data.map((card) =>
             (
               <Grid item key={card} xs={12} sm={6} md={4}>
-                <Card variant="outlined" className={classes.card}>
+                <Card style={{backgroundColor: "pink"}}variant="outlined" className={classes.card}>
                   <CardContent className={classes.cardContent}>
-                    <Typography variant="h5" component="h2">
+                    <Typography  variant="h5" component="h2" color="white">
                         "{card.pk}"
                     </Typography>
-                    <Typography variant="subtitle1" component="h2">
+                    <Typography color="common.white" variant="subtitle1" component="h2">
                         Performed by {card.fields.artist}
                     </Typography>
 

@@ -1,3 +1,4 @@
+import '../App.css';
 import { useState, useEffect } from "react";
 import {Button, Form} from "react-bootstrap";
 import API from "../API";
@@ -55,8 +56,8 @@ const Attributes = ({ onAdd }) => {
     
         return(
             <div className = "container" id="cent">
-                <div className = "row">
-                    <div className = "col-dm-4">
+                <div className = "row" className="align-items-center">
+                    <div className = "col">
                         <h3>Create New Attribute</h3>
                         <Form onSubmit={onSubmit}>
                             <Form.Group>
@@ -125,7 +126,7 @@ const Attributes = ({ onAdd }) => {
                     </Form>
                     </div>
                     <div className="container" id = "cent">
-                    <div className = "col-md-12 m" id="cent">
+                    <div className="align-items-center" id="cent">
                         <table className = "table">
                             <thead>
                                 <tr>
