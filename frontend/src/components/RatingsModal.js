@@ -157,12 +157,12 @@ const Ratings = ({ onAdd }) => {
 
                     </Form>
                     </div>
-
+                    <div className = "container" id='cent'>
                     <div className = "col-md-10" id="cent">
                         <table className = "table">
                             <thead>
                                 <tr>
-                                    <th scope = "col">ID</th>
+                                    {/* <th scope = "col">ID</th> */}
                                     <th scope = "col">Song Name</th>
 
                                     <th scope = "col">Rating</th>
@@ -175,7 +175,7 @@ const Ratings = ({ onAdd }) => {
                                 {ratings.map((item) => {
                                     return (
                                         <tr key ="">
-                                            <td scope="row">{item.id}</td>
+                                            {/* <td scope="row">{item.id}</td> */}
                                             <td scope="row"> {item.song}</td>
                                             <td scope="row"> {item.rating}</td>
                                             <td scope="row"> {item.username}</td>
@@ -184,8 +184,10 @@ const Ratings = ({ onAdd }) => {
                                                 <Form.Group >
                                                     <Form.Label></Form.Label>
                                                     <Form.Control 
+                                                        class="span6 input-large"
+                                                        //style="width:50px"
                                                         type = "text"
-                                                        placeholder = "New_Rating"
+                                                        placeholder = "New Rating 1-5"
                                                         value = {ratingsDict[item.id]}
                                                         onChange= {(e) =>{var id = item.id; setRatingsDict({ rating: e.target.value})}}
                                                         
@@ -230,7 +232,7 @@ const Ratings = ({ onAdd }) => {
                                 })}
                             </tbody>
                         </table>
-
+                        </div>
                     </div>
                 </div>
             </div>

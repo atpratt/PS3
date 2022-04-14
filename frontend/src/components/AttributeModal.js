@@ -124,11 +124,12 @@ const Attributes = ({ onAdd }) => {
                         </div>
                     </Form>
                     </div>
+                    <div className="container" id = "cent">
                     <div className = "col-md-12 m" id="cent">
                         <table className = "table">
                             <thead>
                                 <tr>
-                                    <th scope = "col">#</th>
+                                    {/* <th scope = "col">#</th> */}
                                     <th scope = "col">Artist Name</th>
                                     <th scope = "col">Album</th>
                                     <th scope = "col">Genre</th>
@@ -141,7 +142,7 @@ const Attributes = ({ onAdd }) => {
                                 {artists.map((artist_name) => {
                                     return (
                                         <tr key ="">
-                                            <td scope="row">{artist_name.id}</td>
+                                            {/* <td scope="row">{artist_name.id}</td> */}
                                             <td scope="row"> {artist_name.artist_name}</td>
                                             <td scope="row"> {artist_name.album}</td>
                                             <td scope="row"> {artist_name.genre}</td>
@@ -172,7 +173,7 @@ const Attributes = ({ onAdd }) => {
                                 })}
                             </tbody>
                         </table>
-
+                        </div>
                     </div>
                 </div>
             </div>
