@@ -22,4 +22,6 @@ class ArtistSerializer(serializers.ModelSerializer):
 class RatingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Rating
-        fields = ['username', 'song', 'rating']
+        fields = ['id','username', 'song', 'rating']
+        # this line above will allow for the ID for the ratings to come up
+        #fields = ['username', 'song', 'rating']

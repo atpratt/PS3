@@ -20,6 +20,8 @@ from .serializers import UserSerializer, AttributeSerializer, ArtistSerializer, 
 # 	return render(request, 'MusicApp/index.html', context)
 
 
+
+
 @csrf_exempt
 def user_registration(request):
 	if request.method == 'POST':
@@ -104,3 +106,15 @@ def deletebio(request):
         Artist.objects.filter(artist_name = artist_name).delete();
         return HttpResponse("Bio successfully deleted.");
 
+
+def getitem(request):
+	if(request.method == 'GET'):
+		queryset = Attribute.objects.all();
+		queryset_json = serializers.serialize('json', queryset);
+		return HttpResponse(queryset_json, content_type='application/json')
+
+def deleteitem(request):
+    if(request.method == 'POST'):
+        artist_name = request.POST.get("artist_name");
+        Artist.objects.filter(artist_name = artist_name).delete();
+        return HttpResponse("Item successfully deleted.");

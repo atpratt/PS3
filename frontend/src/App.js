@@ -9,6 +9,7 @@ import AttributeModal from "./components/AttributeModal"
 import {useState, useEffect} from 'react';
 import SongList from "./components/SongList"
 import BioList from "./components/BioList"
+//import AttributeList from "./components/AttributeList"
 
 function App () {
 
@@ -21,6 +22,7 @@ function App () {
             <li><a href="#Ratings">Rate a Song</a></li>
             <li><a href="#Attribute">View Attributes</a></li>
             <li><a href="#SongLists">Song List</a></li>
+            <li><a href="#AutoBio">Auto Biographies</a></li>
         </ul>
       </div>
 
@@ -39,7 +41,7 @@ function App () {
       </div>
 
       <div class="Blue">
-        <h3 id="SongLists"></h3>
+        <h3 id="AutoBio"></h3>
         <h2>Artist Biographies</h2>
         <BioList/>
       </div>
@@ -53,8 +55,6 @@ function App () {
         <h3 id="Attribute"></h3>
         <AttributeModal/>
       </div>
-
-      
 
     </div>
     

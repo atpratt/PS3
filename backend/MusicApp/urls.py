@@ -21,6 +21,8 @@ urlpatterns = [
     path('deletesong/', views.deletesong),
     path('getbios/', views.getsongs),
     path('deletebio/', views.deletesong),
+    # path('getitem/', views.getitem),
+    # path('deleteitem/', views.deleteitem),
     #path('', views.index, name='index'),
     path('user_registration/', views.user_registration),
     # path('songretrieval/', views.song_retrieval, name='songretrieval'),

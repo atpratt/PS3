@@ -121,14 +121,6 @@ const Attributes = ({ onAdd }) => {
                             >
                                 Save
                             </Button> 
-                            <Button
-                                variant = "primary"
-                                type = "button"
-                                onClick = {() => onUpdate(artistId)}
-                                className = "mx-2"
-                            >
-                                Update
-                            </Button>
                         </div>
                     </Form>
                     </div>
@@ -149,20 +141,32 @@ const Attributes = ({ onAdd }) => {
                                 {artists.map((artist_name, index) => {
                                     return (
                                         <tr key ="">
-                                            <th scope="row">{artist_name.id}</th>
-                                            <td> {artist_name.artist_name}</td>
-                                            <td> {artist_name.album}</td>
-                                            <td> {artist_name.genre}</td>
-                                            <td> {artist_name.year}</td>
-                                            <td> {artist_name.record_company}</td>
+                                            <td scope="row">{artist_name.id}</td>
+                                            <td scope="row"> {artist_name.artist_name}</td>
+                                            <td scope="row"> {artist_name.album}</td>
+                                            <td scope="row"> {artist_name.genre}</td>
+                                            <td scope="row"> {artist_name.year}</td>
+                                            <td scope="row"> {artist_name.record_company}</td>
                                             <td>
+                                            <Button
+                                                variant= "primary"
+                                                type = "submit"
+                                                onClick = {onDelete(artist_name.id)}
+                                                className = "mx-2"
+                                            >
+                                            Delete
+                                            </Button> 
+                                            </td>
+                                            
+
+                                            {/* <td>
                                                 <i
                                                     onClick = {() => selectAttribute(artist_name.id)}
                                                 ></i>
                                                 <i
                                                     onClick={() => onDelete(artist_name.id)}
                                                 ></i>
-                                            </td>
+                                            </td> */}
                                         </tr>
                                     );
                                 })}

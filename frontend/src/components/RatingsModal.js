@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import {Button, Form} from "react-bootstrap";
+import { ThemeConsumer } from "react-bootstrap/esm/ThemeProvider";
 import API from "../API"; //imports the API for use
+//import axios from 'axios';
 
 const Ratings = ({ onAdd }) => {
     const [username, setUsername] = useState("");
@@ -8,10 +10,24 @@ const Ratings = ({ onAdd }) => {
     const [song, setSong] = useState("");
     const [songId, setSongId] = useState(null);
     const [ratings, setRatings] = useState([]);
+    const [ratingsDict, setRatingsDict] = useState({});
+
 
     useEffect(() => {
         refreshRatings();
     }, []);
+
+    // handleChange = (event) => {
+    //     // An event has a target, thus, event.target gives us the event's DOM element
+    //     let {id, us, sg, rt} = event.target;
+    //     this.setUsername(us)
+    //     this.setSongId(id)
+    //     this.setRating(rt)
+    //     this.setSong(sg)
+
+    //     const activeItem = { ...this.state.activeItem, [id]: rt };
+    //     this.setState({ activeItem });
+    // };
 
     const refreshRatings = () =>
       //calls the get from the API of the ratings in the DB to get ratings
@@ -24,27 +40,39 @@ const Ratings = ({ onAdd }) => {
     const onSubmit = (event) => {
       //if the event.preventDefault() does not get handled properly to then its result is not normal
       event.preventDefault();
-
-      //sets the rating to be posted to the API
-      //this only posts for users and songs that exist
-      //calls the refresh to update the ratings that are showed to the user
       let r = {username, song, rating}
+      API.post(`/rating/`, r).then(() => refreshRatings());
+
       //API.post("/rating/", r).then(() => refreshRatings());
-      API.put(`/rating/${rating.pk}/`, r).then(() => refreshRatings());
+      //API.put(`/rating/${rating.id}/`, r).then(() => refreshRatings());
     };
 
-    const onUpdate = (pk) => {
+    // const handleDelete = item => {
+    //     axios
+    //       .delete(`http://localhost:8000/api/rating/${item.id}`)
+    //       .then(res => this.refreshRatings());
+    //   };
+
+    const onUpdate = (item) => {
         //when updted, get the song and patch the update
         //then the refresh is called to update
-        let s = {rating}
-        API.patch(`/rating/${pk}/`, s).then((res) => refreshRatings());
+        let s = parseInt(ratingsDict["id"]);
+        
+        console.log("id is:", item.id);
+        console.log(ratingsDict);
+        console.log("rating is:" + s + "type is:" + typeof s);
+
+        API.patch(`/rating/${item.id}/`, s).then((res) => refreshRatings());
+        //API.patch(`/rating/${rating}/`, s).then((res) => refreshRatings());
         // API.patch(`/rating/${this.songId}/`, s).then((res) => refreshRatings());
     }
 
-    const onDelete = (pk) => {
+    const onDelete = (item) => {
+        //item.preventDefault();
         //uses the API delete to delete a rating based on the id
         //then the refresh is called to update
-        API.delete(`/rating/${pk}`).then((res) => refreshRatings());
+        console.log("ITEM ID IS:", item.id);
+        API.delete(`/rating/${item.id}/`).then((res) => refreshRatings());
     }
 
     // const handleDelete = (pk) => {
@@ -78,6 +106,7 @@ const Ratings = ({ onAdd }) => {
                                     placeholder = "Enter Name"
                                     value = {username}
                                     onChange = { (e) => setUsername(e.target.value)}
+                                    //onChange={this.handleChange()}
                                 />
                             </Form.Group>
 
@@ -136,52 +165,55 @@ const Ratings = ({ onAdd }) => {
 
                                     <th scope = "col">Rating</th>
                                     <th scope = "col">Rater</th>
-                                    <th scope = "col"></th>
+                                    <th scope = "col">Update Rating</th>
+                                    <th scope = "col">Delete Rating</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {ratings.map((rating, index) => {
+                                {ratings.map((item) => {
                                     return (
                                         <tr key ="">
-                                            <th scope="row">{rating.pk}</th>
-                                            <td> {rating.song}</td>
-                                            
-                                            <td> {rating.rating}</td>
-                                            <td> {rating.username}</td>
+                                            <td scope="row">{item.id}</td>
+                                            <td scope="row"> {item.song}</td>
+                                            <td scope="row"> {item.rating}</td>
+                                            <td scope="row"> {item.username}</td>
                                             <td>
                                                 {/* creating a form to update the rating with */}
                                                 <Form.Group >
-                                                    <Form.Label>Update Rating</Form.Label>
+                                                    <Form.Label></Form.Label>
                                                     <Form.Control 
                                                         type = "text"
-                                                        placeholder = "Updated Rating"
-                                                        value = {rating}
-                                                        onChange= {(e) => setRating(e.target.value)}
+                                                        placeholder = "New_Rating"
+                                                        value = {ratingsDict[item.id]}
+                                                        onChange= {(e) =>{var id = item.id; setRatingsDict({ id: e.target.value})}}
+                                                        
                                                     />
                                                 </Form.Group>
 
                                                 <Button
                                                     variant= "primary"
                                                     type = "submit"
-                                                    onClick = {(e) => onUpdate()}
+                                                    //onClick = {(e) => onUpdate()}
+                                                    onClick = {() => {onUpdate(item)}}
+                                                    //onClick = {(e) => setRating(e.target.value), onUpdate()}
                                                     className = "mx-2"
                                                 >
                                                 Update
                                                 </Button>
                                             </td>
 
-
                                             <td>
+                                            {/* ids = {rating.id} */}
                                             <Button
                                                 variant= "primary"
                                                 type = "submit"
-                                                onClick = {onDelete(rating)}
+                                                onClick = {() => {onDelete(item)}}
+                                                //onClick = {handleDelete(rating)}
                                                 className = "mx-2"
                                             >
                                             Delete
                                             </Button> 
                                             </td>
-                                            
                                             
                                             {/* <td>
                                                 <i
