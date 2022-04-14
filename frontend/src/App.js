@@ -67,7 +67,7 @@ function App () {
         <p class="center"> Simply Music is the world wide leader in music sharing and rating. This website was created as part of Wesleyan 
             COMP333 Course. All rights are reserved to individual artists and Simply Music has no claims to financial compensation
             for any of the services </p>
-            <Typography variant="body2" color="textSecondary" align="center">
+            <Typography variant="body" color="textSecondary" align="center">
               {' '}  
                     Simply Music {new Date().getFullYear()}  ©. 
               </Typography>
@@ -75,7 +75,7 @@ function App () {
               <div class="Blue">
         <h3 id="About">What's Trending!</h3>
         <p class="center">Simply Music keeps you up to date on the best new music.</p>
-            <Typography variant="body2" color="textSecondary" align="center">
+            <Typography variant="h5" color="textSecondary" align="center">
               {' '}
               <Link color="white" href="https://www.youtube.com/watch?v=HmP_wGYw1_g">
                     Click HERE to see today's hottest song on Simply Music!
