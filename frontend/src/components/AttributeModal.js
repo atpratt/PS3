@@ -38,8 +38,8 @@ const Attributes = ({ onAdd }) => {
     }
 
     const onDelete = (item) => {
-        console.log("ITEM ID IS:", item.id);
-        API.delete(`/attribute/${item.id}/`).then((res) => refreshAttributes());
+        //console.log("ITEM IS:", item);
+        API.delete(`/attribute/${item.artist_name}/`).then((res) => refreshAttributes());
     }
 
     function selectAttribute(id)
