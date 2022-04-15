@@ -75,7 +75,7 @@ const Songs = ({ onAdd }) => {
                             </Form.Group>
 
                             <Form.Group>
-                                <Form.Label>Artist</Form.Label>
+                                <Form.Label>A Known Artist</Form.Label>
                                 <Form.Control 
                                     type = "text"
                                     placeholder = "Enter the Artist"

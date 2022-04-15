@@ -58,7 +58,7 @@ const Attributes = ({ onAdd }) => {
             <div className = "container" id="cent">
                 <div className = "row" className="align-items-center">
                     <div className = "col">
-                        <h3>Create New Attribute</h3>
+                        <h3>Create New Artist</h3>
                         <Form onSubmit={onSubmit}>
                             <Form.Group>
                                 <Form.Label>Artist Name</Form.Label>
