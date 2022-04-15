@@ -36,6 +36,7 @@ function App () {
             <li><a href="#SongLists">Song Catalogue</a></li>
             <li><a href="#Ratings">Rate a Song</a></li>
             <li><a href="#Attribute">Create an Artist Bio</a></li>
+            <li><a href="#AddSongs">Add Songs</a></li>
             
             {/* <li><a href="#AutoBio">Auto Biographies</a></li> */}
         </ul>
@@ -108,7 +109,7 @@ function App () {
       </div>
 
       <div class="Blue">
-        <h3 id="Attribute"></h3>
+        <h3 id="AddSongs"></h3>
         <SongModal/>
       </div>
 
