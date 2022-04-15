@@ -124,7 +124,7 @@ const Songs = ({ onAdd }) => {
                                             <td scope="row"> {item.artist}</td>
                                             <td>
                                                 {/* creating a form to update the rating with */}
-                                                <Form.Group >
+                                                {/* <Form.Group >
                                                     <Form.Label></Form.Label>
                                                     <Form.Control 
                                                         type = "text"
@@ -134,9 +134,9 @@ const Songs = ({ onAdd }) => {
                                                         // value = {songDict[item.song]}
                                                         // onChange= {(e) =>{setSongDict({song: e.target.value})}}                                                      
                                                     />
-                                                </Form.Group>
+                                                </Form.Group> */}
 
-                                                <Button
+                                                {/* <Button
                                                     variant= "primary"
                                                     type = "submit"
                                                     //onClick = {(e) => onUpdate()}
@@ -145,7 +145,7 @@ const Songs = ({ onAdd }) => {
                                                     className = "mx-2"
                                                 >
                                                 Update
-                                                </Button>
+                                                </Button> */}
                                             </td>
 
                                             <td>
