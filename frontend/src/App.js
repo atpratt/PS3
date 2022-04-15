@@ -9,6 +9,7 @@ import AttributeModal from "./components/AttributeModal"
 import {useState, useEffect} from 'react';
 import SongList from "./components/SongList"
 import BioList from "./components/BioList"
+import SongModal from "./components/SongModal"
 //import AttributeList from "./components/AttributeList"
 
 
@@ -104,6 +105,11 @@ function App () {
       <div class="Blue">
         <h3 id="Attribute"></h3>
         <AttributeModal/>
+      </div>
+
+      <div class="Blue">
+        <h3 id="Attribute"></h3>
+        <SongModal/>
       </div>
 
     </div>
