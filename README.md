@@ -19,20 +19,31 @@ python3 manage.py runserver
 cd frontend
 
 npm install
+
 npm add axios
+
 npm add bootstrap reactstrap
+
 npm start
 
 Features we implemented:
+
 -Sort songs by title, artist, or rating
+
 -Full song catalogue using MUI cards. Can hide a card, then refresh to see all songs again
+
 -Sort
+
 -Average Rating
+
 -Youtube link to "hottest song"
+
 -Create and see artist biographies
 
 UI Tips
+
 Song List
+
 - Able to sort based on different feaut
 Create New Rating 
 - able to create new ratings with valid users and songs
