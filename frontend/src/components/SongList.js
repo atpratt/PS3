@@ -26,9 +26,6 @@ const useStyles = makeStyles((theme) => ({
           fontSize: 16,}
         }
     },
-    cardContent: {
-      flexGrow: 1,
-    },
   }));
 
 class SongList extends React.Component {
@@ -38,13 +35,13 @@ class SongList extends React.Component {
       }
     
     componentDidMount(){
-        axios.get('http://localhost:8000/getsongs/')//.then(res => res.json())
+        axios.get('http://localhost:8000/getsongs/')
         .then(json => this.setState({ data: json.data }));
 
     }
 
     reset(){
-      axios.get('http://localhost:8000/getsongs/')//.then(res => res.json())
+      axios.get('http://localhost:8000/getsongs/')
       .then(json => this.setState({ data: json.data }));
 
   }
