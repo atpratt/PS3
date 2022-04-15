@@ -8,6 +8,8 @@ In order to run app open two console tabs then
 
 cd backend
 
+source my-venv/bin/activate
+
 python3 manage.py migrate
 
 python3 manage.py loaddata initial.json
