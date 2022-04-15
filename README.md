@@ -19,7 +19,8 @@ python3 manage.py runserver
 cd frontend
 
 npm install
-
+npm add axios
+npm add bootstrap reactstrap
 npm start
 
 Features we implemented:
@@ -28,6 +29,23 @@ Features we implemented:
 
 -Full song catalogue using MUI cards. Can hide a card, then refresh to see all songs again
 
+-Sort
+
+-Average Rating
+
 -Youtube link to "hottest song"
 
 -Create and see artist biographies
+
+UI Tips
+Song List
+- Able to sort based on different feaut
+Create New Rating 
+- able to create new ratings with valid users and songs
+- able to update ratings and delete ratings
+Create New Attribute 
+- able to create new attributes
+- able to delete attributes
+Create New Songs
+- Erros in adding and editting songs
+- Able to delete songs and after a refresh changes are shown in the songlist cards
